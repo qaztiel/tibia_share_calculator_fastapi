@@ -4,12 +4,7 @@ from tibiasharecalculator import TibiaShareCalculator
 app = FastAPI()
 calc = TibiaShareCalculator()
 
-@app.get("/")
-async def root():
-    return {"message": "Hello"}
-
-
-@app.get("/level/{level}")
+@app.get("/{level}")
 async def calc_level(level):
     
     results = calc.calc_range(int(level))
